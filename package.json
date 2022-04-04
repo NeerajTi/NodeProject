@@ -10,6 +10,8 @@
   "author": "Neeraj",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.3"
+    "@blockfrost/blockfrost-js": "^4.1.0",
+    "express": "^4.17.3",
+    "pug": "^3.0.2"
   }
 }
