@@ -48,13 +48,13 @@ include ./header.pug
         |  Email: mail@mail.com
         br
       .w3-col.m6
-        form(action='/action_page.php' target='_blank')
+        form(action='/save-contact' method='POST')
           .w3-row-padding(style='margin:0 -16px 8px -16px')
             .w3-half
-              input.w3-input.w3-border(type='text' placeholder='Name' required='' name='Name')
+              input.w3-input.w3-border(type='text' placeholder='Name' required='' name='fullname')
             .w3-half
-              input.w3-input.w3-border(type='text' placeholder='Email' required='' name='Email')
-          input.w3-input.w3-border(type='text' placeholder='Message' required='' name='Message')
+              input.w3-input.w3-border(type='text' placeholder='Email' required='' name='email')
+          input.w3-input.w3-border(type='text' placeholder='Message' required='' name='message')
           button.w3-button.w3-black.w3-section.w3-right(type='submit') SEND
   // End Page Content
 
