@@ -7,6 +7,10 @@ app.get('/', function (req, res) {
   //res.send('Hello World! Testing');
   res.sendFile(path.join(__dirname+'/home.html'));
 });
+app.get('/contact', function (req, res) {
+  //res.send('Hello World! Testing');
+  res.sendFile(path.join(__dirname+'/contact.html'));
+});
 app.listen(port, function () {
   console.log('Example app listening on port'+port);
 });
