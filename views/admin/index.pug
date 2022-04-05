@@ -1,0 +1,26 @@
+extends layout.pug
+block content
+ .container-fluid.px-4
+   h1.mt-4 Dashboard
+   ol.breadcrumb.mb-4
+    li.breadcrumb-item.active Dashboard
+   .card.mb-4
+    .card-header
+    | Contacts
+   .card-body
+    table.table.table-bordered
+     thead 
+      tr 
+       td Name 
+       td Email
+       td Message 
+       td Added 
+     tbody
+       for person in personList
+         tr 
+          td=person.name 
+          td=person.email 
+          td=person.message 
+          td=person.added
+
+    

@@ -9,7 +9,7 @@ app.set('view engine', 'pug');
 app.set('views','./views');
 const port=process.env.PORT || 3585
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(express.static(path.join(__dirname, 'public')));
 //save contact
 app.post('/save-contact',(req, res) => {
   const userDetails=req.body;
@@ -53,6 +53,36 @@ let locals = {
   res.render('cardano',locals);
 });
  
+//admin routes
+app.get('/admin', function (req, res) {
+  var personList = [];
+  conn.query("SELECT * FROM contacts order by id desc", function (err, rows, fields) {
+    if (err) throw err;
+    console.log(rows);
+    for (var i = 0; i < rows.length; i++) {
+
+      // Create an object to save current row's data
+      var person = {
+        'name':rows[i].fullname,
+        'email':rows[i].email,
+        'message':rows[i].message,
+        'added':rows[i].added
+      }
+
+      // Add object into array
+      personList.push(person);
+      
+    }
+    console.log(personList);
+    // Assuming `fields` contains the data you wish to use in your template
+    res.render('admin/index', { "personList": personList });
+  });
+  //res.send('Hello World! Testing');
+  //res.sendFile(path.join(__dirname+'/home.html'));
+ 
+  //res.render('admin/index');
+});
+
 function apiResponse(results){
     return JSON.stringify({"status": 200, "error": null, "response": results});
 }
