@@ -60,13 +60,14 @@ app.get('/admin', function (req, res) {
     if (err) throw err;
     console.log(rows);
     for (var i = 0; i < rows.length; i++) {
-
+      var datestring=(rows[i].added).toString();
+      var datearray = datestring.split("T");
       // Create an object to save current row's data
       var person = {
         'name':rows[i].fullname,
         'email':rows[i].email,
         'message':rows[i].message,
-        'added':rows[i].added
+        'added':datearray[0]
       }
 
       // Add object into array
