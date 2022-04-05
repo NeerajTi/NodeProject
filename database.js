@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 const conn = mysql.createConnection({
     host: 'sql5.freesqldatabase.com',
-    user: 'sql5483588', /* MySQL User */
+    user: 'sql5483588',
     password: 'hIMJajqRIQ', /* MySQL Password */
     database: 'sql5483588' /* MySQL Database */
   });
